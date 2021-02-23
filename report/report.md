@@ -42,13 +42,13 @@ There is no documentation that provides examples.
 
 ## Refactoring
 
-##Plan for refactoring complex code:
+### Plan for refactoring complex code:
 
 In the function valid_solution_set I was working with there is three nestled for-loops with the purpose of getting the columns 
 from the matrix, which adds to the CCN. A simple way to refactor this funtion could be to simply import numpy and use a numpy 
 matrix instead which is much efficient since with numpy you can get the columns out with a single for-loop. 
 
-##Estimated impact of refactoring (lower CC, but other drawbacks?).
+### Estimated impact of refactoring (lower CC, but other drawbacks?).
 
 While I think this would lower the CC and especially make the function easier to read the drawback is that you would be dependant
 on numpy and it seems the people who control the project prefers to be entirely independant on other libraries. 
