@@ -112,8 +112,8 @@ def valid_solution_set (board):
         testing[9] = True
     return True
 
-#def return_thingy(i):
-#    return testing[i] 
+def return_thingy(i):
+    return testing[i] 
 
 # bread = np.array([
 #                     [5, 3, 4, 6, 7, 8, 9, 1, 2],
