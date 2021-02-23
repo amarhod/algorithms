@@ -498,6 +498,12 @@ class TestTextJustification(unittest.TestCase):
                          text_justification(["What", "must", "be", "acknowledgment", "shall", "be"]
                                             , 16)
                          )
+        self.assertRaises(ValueError,
+
+                         lambda: text_justification(["What", "must", "be", "acknowledgment", "shall", "be"]
+                                            , 10)
+                         )
+
 
 class TestMinDistance(unittest.TestCase):
     def test_min_distance(self):
