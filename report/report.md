@@ -91,7 +91,7 @@ its output?
 
 ## Coverage improvement
 
-### validat_solution_set
+### valid_solution_set
 
 Apart from loops to iterate there are three if-statements required to test if a board is valid or not which means that there are 6 paths to take (true/false for the 3 if-statements). The function has 1 testcase for a valid board and 1 testcase for a invalid board. To see that a board is valid all 3 if-statements must be true, which means that the valid testcase takes 3 out of the 6 paths. However the invalid testcase fails on the first if-statement and ends the test since it already know it is not a valid board, meaning the other two false if-statements are never tested. 
 
