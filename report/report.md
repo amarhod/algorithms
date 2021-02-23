@@ -26,6 +26,13 @@ Without the wild-card functionality, the CC could be brought down to 4 which is 
 The function is short (20 LOC) and does not contain exceptions.
 The documentation shows good examples for the search function.
 
+### prime_check() @ maths/prime_check.py
+The function was measured with Lizard which gave the result of 9.
+The reason the prime_check function, which checks if a number is a prime, has such a high CC is because it uses cleaver modulo operations which lowers the running time at the cost of higher CC with the extra if-statements. 
+There is another variation the loops through each number up to the square root of the number that is being checked. It brings down the CC to 6 but does not seem suitable since the function is based on mathematical lemmas and easy to test.
+The function is short (16 LOC) and does not contain exceptions.
+There is no documentation that provides examples.
+
 ## Refactoring
 
 Plan for refactoring complex code:
