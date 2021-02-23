@@ -28,6 +28,8 @@ class TestMazeSearch(unittest.TestCase):
         self.assertEqual(14, maze_search(grid_1))
         grid_2 = [[1,0,0],[0,1,1],[0,1,1]]
         self.assertEqual(-1, maze_search(grid_2))
+        grid_3 = [[0,0,1,1,1,1],[1,0,1,0,1,0],[1,0,1,0,1,1],[1,1,1,0,1,1]]
+        self.assertEqual(-1, maze_search(grid_3))
 
 
 class TestWordLadder(unittest.TestCase):
