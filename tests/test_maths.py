@@ -264,6 +264,9 @@ class TestPythagoras(unittest.TestCase):
 
     def test_pythagoras(self):
         self.assertEqual("Hypotenuse = 3.605551275463989", pythagoras(3, 2, "?"))
+        self.assertEqual("Opposite = 2.23606797749979", pythagoras("?", 2, 3))
+        self.assertEqual("Adjacent = 2.8284271247461903", pythagoras(1, "?", 3))
+        self.assertRaises(ValueError, lambda: pythagoras(None, 2, 3))
 
 
 class TestRabinMiller(unittest.TestCase):
