@@ -15,13 +15,16 @@ Worked out of the box without any dependencies except the need for installing th
 
 ## Complexity
 
-1. What are your results for ten complex functions?
-   * Did all methods (tools vs. manual count) get the same result?
-   * Are the results clear?
-2. Are the functions just complex, or also long?
-3. What is the purpose of the functions?
-4. Are exceptions taken into account in the given measurements?
-5. Is the documentation clear w.r.t. all the possible outcomes?
+### search() @ tree/trie/add_and_search.py
+Counting the cyclomatic complexity (CC) manually gave the result 10 which was the same that the tool "Lizard" measured.
+The reason the search function, which checks if a word is in a Trie, has such a high CC is because it allows for "wild-card" searches. Meaning that the function should return true for the given example:
+```
+add_word("man")
+search("m.n") # returns true
+```
+Without the wild-card functionality, the CC could be brought down to 4 which is good.
+The function is short (20 LOC) and does not contain exceptions.
+The documentation shows good examples for the search function.
 
 ## Refactoring
 
