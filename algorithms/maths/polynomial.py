@@ -5,6 +5,7 @@ from typing import Dict, Union, Set, Iterable
 from numbers import Rational
 from functools import reduce
 
+brancharray = [] #array of strings detailing what branch was reached
 
 class Monomial:
     """
@@ -336,29 +337,51 @@ class Polynomial:
         Add a given poylnomial to a copy of self.
 
         """
+        brancharray = []
+        brancharray.append("__add__")
+        
         if isinstance(other, int) or isinstance(other, float) or isinstance(other, Fraction):
+            brancharray.append("if isinstance(int or float or fraction) true")
+            print(brancharray)
             return self.__add__(Monomial({}, Polynomial._rationalize_if_possible(other)))
         elif isinstance(other, Monomial):
+            brancharray.append("if isinstance(monomial) true")
             monos = {m.clone() for m in self.monomials}
 
             for _own_monos in monos:
+                brancharray.append("for (own_monos) true")
                 if _own_monos.equal_upto_scalar(other):
+                    brancharray.append("if _own_monos.equal_upto_scalar(other) true")
                     scalar = _own_monos.coeff
                     monos -= {_own_monos}
                     temp_variables = {i: other.variables[i] for i in other.variables}
                     monos |= {Monomial(temp_variables, Polynomial._rationalize_if_possible(scalar + other.coeff))}
+                    print(brancharray)
+                    brancharray = []
                     return Polynomial([z for z in monos])
-
+                brancharray.append("if _own_monos.equal_upto_scalar(other) false")
+            
+            brancharray.append("for (own_monos) false")
             monos |= {other.clone()}
+            print(brancharray)
+            brancharray = []
             return Polynomial([z for z in monos])
         elif isinstance(other, Polynomial):
+            brancharray.append("if isinstance(polynomial) true")
             temp = list(z for z in {m.clone() for m in self.all_monomials()})
         
             p = Polynomial(temp)
             for o in other.all_monomials():
+                brancharray.append("for other.all_monomials true")
                 p = p.__add__(o.clone())
+            brancharray.append("for other.all_monomials false")
+            print(brancharray)
+            brancharray = []
             return p
         else:
+            brancharray.append("valueerror branch")
+            print(brancharray)
+            brancharray = []
             raise ValueError('Can only add int, float, Fraction, Monomials, or Polynomials to Polynomials.')
 
     # def __sub__(self, other: Union[int, float, Fraction, Monomial, Polynomial]) -> Polynomial:
@@ -412,6 +435,7 @@ class Polynomial:
             result = Polynomial([])
             monos = {m.clone() for m in self.all_monomials()}
             for m in monos:
+
                 result = result.__add__(m.clone() * other)
             return result
         elif isinstance(other, Polynomial):

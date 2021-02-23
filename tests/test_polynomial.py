@@ -53,26 +53,35 @@ class TestSuite(unittest.TestCase):
 		
 		# The zero polynomials should add up to
 		# itselves only.
+		
+		print("branch array for test 0:")
 		self.assertEqual(self.p0 + self.p1, self.p0)
+		
+		print("branch array for test 1:")
 		self.assertEqual(self.p0 + self.p1, self.p1)
 		
 		# Additive inverses should add up to the
 		# zero polynomial.
+		print("branch array for test 2:")
 		self.assertEqual(self.p3 + self.p7, self.p0)
+		print("branch array for test 3:")
 		self.assertEqual(self.p3 + self.p7, self.p1)
 
 		# Like terms should combine.
 		# The order of monomials should not matter.
+		print("branch array for test 4:")
 		self.assertEqual(self.p2 + self.p3, Polynomial([
 			Monomial({1: 1}, 4),
 			Monomial({1: 2, 2: -1}, 1.5)
 		]))
+		print("branch array for test 5:")
 		self.assertEqual(self.p2 + self.p3, Polynomial([
 			Monomial({1: 2, 2: -1}, 1.5),
 			Monomial({1: 1}, 4),
 		]))
 
 		# Another typical computation.
+		print("branch array for test 6:")
 		self.assertEqual(self.p5 + self.p6, Polynomial([
 			Monomial({}, 7.96783496993343),
 			Monomial({2: 3, 3: 1}, 1.25),
