@@ -2,7 +2,7 @@
 
 ## Project
 
-Name: Manim
+Name: Pythonic Data Structures and Algorithms
 
 URL: https://github.com/keon/algorithms
 
