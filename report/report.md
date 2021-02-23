@@ -26,6 +26,13 @@ Without the wild-card functionality, the CC could be brought down to 4 which is 
 The function is short (20 LOC) and does not contain exceptions.
 The documentation shows good examples for the search function.
 
+### valid_solution_set() @ matrix/sudoku_validator.py
+When we calculated the CCN manually we got 11 which is the same as the automated lizard tool gets. Since most of the code consist of for-loops and if-statements the function is short in terms of LOC even though it has fairly high CCN. There are no exceptions used in this function.
+
+The function is a sudoku validator so it goes through a sudoku board (9x9 matrix) and checks that every rule is fulfilled, which requires a lot of checks that increase the CCN. The rules it checks is that every row, column and square has only the numbers 1-9 and exactly one of each. 
+ 
+There is a comment at the start explaning that the input is a 2D array and that it will return 0/1 depending of if it is valid or not but the function itself and what is being tested in the branches is not commented at all. 
+
 ### prime_check() @ maths/prime_check.py
 The function was measured with Lizard which gave the result of 9.
 The reason the prime_check function, which checks if a number is a prime, has such a high CC is because it uses cleaver modulo operations which lowers the running time at the cost of higher CC with the extra if-statements. 
